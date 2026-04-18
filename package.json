@@ -1,0 +1,19 @@
+{
+  "name": "test_api",
+  "version": "1.0.0",
+  "description": "Top 3 stock picks based on 10 tickers",
+  "main": "test.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/KayleeP36/TopStockPicks.git"
+  },
+  "author": "KayleeP36",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KayleeP36/TopStockPicks/issues"
+  },
+  "homepage": "https://github.com/KayleeP36/TopStockPicks#readme"
+}
