@@ -1,0 +1,37 @@
+{
+  "status": "ok",
+  "timestamp": "2026-04-18T07:24:05.684Z",
+  "requestedTickers": [
+    "AAPL",
+    "MSFT",
+    "NVDA",
+    "AMZN",
+    "GOOGL",
+    "GOOG",
+    "META",
+    "TSLA",
+    "BRK.B"
+  ],
+  "successCount": 8,
+  "failedCount": 1,
+  "recommendations": [
+    {
+      "ticker": "NVDA",
+      "score": 1.998,
+      "return": 0.8904,
+      "volatility": 1.2156
+    },
+    {
+      "ticker": "AAPL",
+      "score": 1.9032,
+      "return": 1.2249,
+      "volatility": 2.0902
+    },
+    {
+      "ticker": "GOOG",
+      "score": 2.0387,
+      "return": 1.4861,
+      "volatility": 2.0019
+    }
+  ]
+}

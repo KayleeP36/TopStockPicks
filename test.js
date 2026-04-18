@@ -52,12 +52,11 @@ const DEFAULT_TICKERS = [
   "GOOG",
   "META",
   "TSLA",
-  "BRK.B",
-  "AVGO",
+  "BRK.B"
 ];
 
 const https = require("https");
-const REQUEST_DELAY_MS = Number(process.env.REQUEST_DELAY_MS || 15000);
+const REQUEST_DELAY_MS = Number(process.env.REQUEST_DELAY_MS || 6000);
 const MAX_RETRIES = Number(process.env.MAX_RETRIES || 3);
 
 function wait(ms) {
@@ -344,12 +343,27 @@ module.exports = {
 };
 
 if (require.main === module) {
+  const path = require("path");
   const inputTickers = process.argv.slice(2);
   const tickersToFetch = inputTickers.length ? inputTickers : DEFAULT_TICKERS;
 
   getStocks(tickersToFetch)
     .then((results) => {
-      console.log(JSON.stringify(results, null, 2));
+      const output = {
+        status: "ok",
+        timestamp: new Date().toISOString(),
+        requestedTickers: results.requestedTickers,
+        successCount: results.successCount,
+        failedCount: results.failedCount,
+        recommendations: results.recommendations,
+      };
+
+      console.log(JSON.stringify(output, null, 2));
+
+      const fs = require("fs");
+      const recommendationsPath = path.join(__dirname, "recommendations.json");
+      fs.writeFileSync(recommendationsPath, JSON.stringify(output, null, 2), "utf8");
+      console.log(`\nResults saved to: ${recommendationsPath}`);
     })
     .catch((error) => {
       console.error("Request failed:", error.message);

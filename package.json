@@ -4,6 +4,7 @@
   "description": "Top 3 stock picks based on 10 tickers",
   "main": "test.js",
   "scripts": {
+    "start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -15,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/KayleeP36/TopStockPicks/issues"
   },
-  "homepage": "https://github.com/KayleeP36/TopStockPicks#readme"
+  "homepage": "https://github.com/KayleeP36/TopStockPicks#readme",
+  "dependencies": {
+    "express": "^5.2.1"
+  }
 }
