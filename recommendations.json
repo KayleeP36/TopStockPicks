@@ -1,6 +1,6 @@
 {
   "status": "ok",
-  "timestamp": "2026-04-18T07:24:05.684Z",
+  "timestamp": "2026-04-18T18:23:11.282Z",
   "requestedTickers": [
     "AAPL",
     "MSFT",
@@ -17,18 +17,33 @@
   "recommendations": [
     {
       "ticker": "NVDA",
+      "open": 199.9,
+      "high": 201.7,
+      "low": 199.27,
+      "close": 201.68,
+      "buyPrice": 200.7922,
       "score": 1.998,
       "return": 0.8904,
       "volatility": 1.2156
     },
     {
       "ticker": "AAPL",
+      "open": 266.96,
+      "high": 272.3,
+      "low": 266.72,
+      "close": 270.23,
+      "buyPrice": 269.8735,
       "score": 1.9032,
       "return": 1.2249,
       "volatility": 2.0902
     },
     {
       "ticker": "GOOG",
+      "open": 334.43,
+      "high": 339.985,
+      "low": 333.29,
+      "close": 339.4,
+      "buyPrice": 337.224,
       "score": 2.0387,
       "return": 1.4861,
       "volatility": 2.0019

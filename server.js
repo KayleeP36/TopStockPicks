@@ -4,7 +4,7 @@ const path = require("path");
 const { getStocks } = require("./test.js");
 
 const app = express();
-const PORT = Number(process.env.PORT || 3001);
+const PORT = Number(process.env.PORT || 3003);
 const RECOMMENDATIONS_FILE = path.join(__dirname, "recommendations.json");
 
 // Enable CORS for local frontend development
@@ -49,7 +49,7 @@ app.get("/recommendations", (req, res) => {
   }
 });
 
-app.get("/updateRecommendations", async (req, res) => {
+const updateRecommendationsHandler = async (req, res) => {
   const tickersParam = req.query.tickers;
   const tickers = tickersParam
     ? tickersParam.split(",").map((t) => t.trim()).filter(Boolean)
@@ -84,7 +84,17 @@ app.get("/updateRecommendations", async (req, res) => {
     saveRecommendations(errorResponse);
     res.status(500).json(errorResponse);
   }
-});
+};
+
+app.get(
+  [
+    "/updateRecommendations",
+    "/updateRecommendation",
+    "/updatedRecommendations",
+    "/updatedRecommendation",
+  ],
+  updateRecommendationsHandler
+);
 const server = app.listen(PORT, () => {
   console.log(`Server running at http://localhost:${PORT}`);
 }).on('error', (err) => {

@@ -112,10 +112,16 @@ function getFinancialMetrics(stockData) {
 
   const computedReturnPct = open > 0 ? ((close - open) / open) * 100 : 0;
   const computedVolatilityPct = open > 0 ? ((high - low) / open) * 100 : 0;
+  const buyPrice = toNumber(stockData.vwap, close || open);
   const score =
     stockData.buyScore ?? stockData.compositeScore ?? computedReturnPct * 0.6 - computedVolatilityPct * 0.1;
 
   return {
+    open: round(open),
+    high: round(high),
+    low: round(low),
+    close: round(close),
+    buyPrice: round(buyPrice),
     score: round(toNumber(score)),
     return: round(stockData.dailyReturnPct ?? computedReturnPct),
     volatility: round(stockData.rangePct ?? computedVolatilityPct),
