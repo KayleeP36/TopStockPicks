@@ -4,8 +4,22 @@ const path = require("path");
 const { getStocks } = require("./test.js");
 
 const app = express();
-const PORT = Number(process.env.PORT || 3004);
+const PORT = Number(process.env.PORT || 3001);
 const RECOMMENDATIONS_FILE = path.join(__dirname, "recommendations.json");
+
+// Enable CORS for local frontend development
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept"
+  );
+  if (req.method === "OPTIONS") {
+    res.header("Access-Control-Allow-Methods", "GET,POST,PUT,DELETE,OPTIONS");
+    return res.sendStatus(200);
+  }
+  next();
+});
 
 function saveRecommendations(data) {
   fs.writeFileSync(
